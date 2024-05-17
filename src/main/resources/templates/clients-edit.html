@@ -1,0 +1,56 @@
+<html 
+    xmlns:th="http://thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout}"> <!-- En esta decorate es donde llamamos a nuestra otra pagina layout-->
+    <head> 
+        <title>Clients Edit</title>
+    </head>
+<body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+        <!-- Page Content-->
+        <section layout:fragment="body" class="py-5"> <!-- aqui nos va a mostrar lo que tenga el mismo fragment "body" que en nuestro layout es decir la palabra body es la palabra calve aqui-->
+            <form role="form" method="post" th:action="@{/clients/{clientId}/edit(clientId=${client.id})}" th:object="${client}">
+                <input type="hidden" th:field="*{id}"> 
+                <div class="container">
+                    <div class="form-row">
+                        <div class="form-group col-md6">
+                            <label for="Nombre">nombre</label> <!-- la aprte blanca es donde va el atributo de la tabla-->
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="Nombre"
+                                name="Nombre"
+                                th:field="*{nombre}"
+                                placeholder="Name">
+                        <p th:if="${#fields.hasErrors('nombre')}" class="text-danger" th:errors="*{nombre}"></p>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="Apellido">apellido</label>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="Apellido"
+                                name="Apellido"
+                                th:field="*{apellido}"
+                                placeholder="Last Name">
+                                <p th:if="${#fields.hasErrors('apellido')}" class="text-danger" th:errors="*{apellido}"></p>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="PhotoUrl">photoUrl</label>
+                            <input 
+                            type="text" 
+                            class="form-control" 
+                            id="PhotoUrl"
+                            name="PhotoUrl"
+                            th:field="*{photoUrl}"
+                            placeholder="Photo">
+                        <p th:if="${#fields.hasErrors('photoUrl')}" class="text-danger" th:errors="*{photoUrl}"></p>    
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+                </form>
+        </section>
+    </main>
+</body>
+</html>
