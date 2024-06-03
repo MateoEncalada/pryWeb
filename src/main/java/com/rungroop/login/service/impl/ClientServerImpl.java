@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.rungroop.login.dto.ClientDto;
 import com.rungroop.login.models.Client;
+
 import com.rungroop.login.repository.ClientRepository;
 import com.rungroop.login.service.ClientService;
 

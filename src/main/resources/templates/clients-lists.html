@@ -10,6 +10,10 @@
         <!-- Page Content-->
         <section layout:fragment="body" class="py-5"> <!-- aqui nos va a mostrar lo que tenga el mismo fragment "body" que en nuestro layout es decir la palabra body es la palabra calve aqui-->
             <div class="container px-5 my-5">
+                <div th:if="${param.success}" class="alert alert-success">
+                    User register successfully
+                </div>
+
                 <div class="text-center mb-5">
                     <h1 class="fw-bolder">Lets se what i can put here</h1>
                     <p class="lead fw-normal text-muted mb-0">Veamos este tambien</p>

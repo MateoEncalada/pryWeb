@@ -62,7 +62,7 @@ public class ClientController {
             model.addAttribute("client", clientDto);
             return "clients-create";
         }
-        //client.setEdad(0);
+        clientDto.setEdad(0);
         clientService.saveClient(clientDto); // clientRepository.save(client);();
         
         return "redirect:/clients";
