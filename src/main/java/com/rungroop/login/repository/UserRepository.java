@@ -6,7 +6,5 @@ import com.rungroop.login.models.UserEntity;
 
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
     UserEntity findByEmail(String email);
-    UserEntity findByUsername (String userName);
-    UserEntity findFirstByUsername (String username);
-
+    UserEntity findByUsername (String username);//si haty error cambiar username a userName
 }

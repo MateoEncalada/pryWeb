@@ -35,22 +35,28 @@ public class AuthController {
     @PostMapping("/register/save")
     public String register(@Valid @ModelAttribute("user") RegistrationDto user,
             BindingResult result, Model model) {
-        UserEntity existingUserEmail = userService.findByEmail(user.getEmail());
-        if (existingUserEmail != null && existingUserEmail.getEmail() != null && !existingUserEmail.getEmail().isEmpty()) {
-           return "redirect:/register?fail";
-        }
-        UserEntity existingUserUsername = userService.findByUsername(user.getUsername());
-        if (existingUserUsername != null && existingUserEmail.getUsername() != null && !existingUserUsername.getUsername().isEmpty()) {
-            return "redirect:/register?fail";
-        }
         if (result.hasErrors()) {
             model.addAttribute("user", user);
+            System.out.println("Validation errors: " + result.getAllErrors());
             return "register";
         }
+
+        UserEntity existingUserEmail = userService.findByEmail(user.getEmail());
+        if (existingUserEmail != null) {
+            result.rejectValue("email", null, "Email already in use");
+            return "register";
+        }
+
+        UserEntity existingUserUsername = userService.findByUsername(user.getUsername());
+        if (existingUserUsername != null) {
+            result.rejectValue("username", null, "Username already in use");
+            return "register";
+        }
+
         userService.saveUser(user);
-        return "redirect:/clients.success";
-        
+        return "redirect:/clients?success";
     }
+    
     
 
 }

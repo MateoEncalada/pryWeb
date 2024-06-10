@@ -35,7 +35,7 @@
         </style>
         <div class="main">
             <div class="col-md-6 col-sm-12">
-                <div th:if="${param.error}" class="alert alert-success">
+                <div th:if="${param.error}" class="alert alert-danger">
                     invalid username and password
                 </div>
                 <div th:if="${param.logout}" class="alert alert-success">
@@ -63,7 +63,8 @@
                                     name="password"
                                     >
                         </div>
-                        <button th:href="@{/register}" type="submit" class="btn btn-black">Need an account?</button>
+                        <button th:href="@{/register}" type="button" class="btn btn-black">Need an account?</button>
+                        <!-- <button type="submit" class="btn btn-secondary">Login</button> -->
                         <button type="submit" value ="Log in" class="btn btn-secondary">Login</button>
                     </form>
                 </div>
