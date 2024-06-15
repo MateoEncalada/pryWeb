@@ -1,5 +1,7 @@
 package com.rungroop.login.models;
 
+import java.util.Date;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,4 +25,6 @@ public class Resena {
     private Client cliente;
     private Integer res_calificacion;
     private String res_comentario;
+    @Temporal(TemporalType.DATE)
+    private Date jue_Fecharesena;
 }

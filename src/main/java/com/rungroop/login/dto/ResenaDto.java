@@ -1,5 +1,7 @@
 package com.rungroop.login.dto;
 
+import java.util.Date;
+
 import lombok.Builder;
 import lombok.Data;
 
@@ -11,4 +13,5 @@ public class ResenaDto {
     private Long cli_id;
     private Integer res_calificacion;
     private String res_comentario;
+    private Date jue_Fecharesena;
 }
