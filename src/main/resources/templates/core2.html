@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html 
+    xmlns:th="http://thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout}">
+<head>
+    <title>Reporte de Juegos</title>
+</head>
+<body class="d-flex flex-column">
+    <section layout:fragment="body" class="py-5">
+        <header class="py-5 bg-light border-bottom mb-4">
+            <div class="container">
+                <div class="text-center my-5">
+                    <h1 class="fw-bolder">Generar Reporte de Juegos</h1>
+                    <p class="lead mb-0">Ingrese las fechas para generar el reporte de juegos vendidos y reseñas.</p>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <form action="/resultadocore2" method="get">
+                <div class="form-group">
+                    <label for="fechaInicio">Fecha Inicio</label>
+                    <input type="date" id="fechaInicio" name="fechaInicio" required>
+                </div>
+                <div class="form-group">
+                    <label for="fechaFin">Fecha Fin</label>
+                    <input type="date" id="fechaFin" name="fechaFin" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Generar Reporte</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
